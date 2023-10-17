@@ -7,9 +7,9 @@ import { labels, priorities, statuses } from "./data"
 const tasks = Array.from({ length: 100 }, () => ({
   id: `TASK-${faker.datatype.number({ min: 1000, max: 9999 })}`,
   title: faker.hacker.phrase().replace(/^./, (letter: string) => letter.toUpperCase()),
-  status: faker.helpers.arrayElement(statuses).value,
-  label: faker.helpers.arrayElement(labels).value,
-  priority: faker.helpers.arrayElement(priorities).value,
+  status: faker.helpers.arrayElement(statuses).valueOf,
+  label: faker.helpers.arrayElement(labels).valueOf,
+  priority: faker.helpers.arrayElement(priorities).valueOf,
 }))
 
 fs.writeFileSync(
