@@ -1,5 +1,5 @@
 import { Toaster } from 'sonner';
-
+export const dynamic = 'force-dynamic'
 export default function SiteLayout({
   children,
 }: {

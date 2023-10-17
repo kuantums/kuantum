@@ -219,4 +219,4 @@ const users = [
   },
 ];
 
-export {columns, users, statusOptions,labels, priorities, statuses};
+export {columns, users, statusOptions};
