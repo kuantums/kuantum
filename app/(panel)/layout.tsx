@@ -1,7 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import DashboardNavbar from "@/components/ui/navbar/Navbar";
+import DashboardNavbar from "@/components/navbar/Navbar";
 
 export const dynamic = 'force-dynamic'
 

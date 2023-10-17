@@ -33,7 +33,7 @@ export default function Home() {
     <div className="w-full flex flex-col items-center">
       <div className="animate-in flex flex-col gap-8  max-w-4xl px-3 py-16 lg:py-24 text-foreground">
         <div className="flex flex-col items-center mb-4 lg:mb-12">
-          <h1 className=" text-9xl font-bold tracking-tighter text-slate-200">
+          <h1 className=" text-8xl font-bold tracking-tighter text-slate-200">
             Kuantum Karsa Karya.
           </h1>
           <p className="text-2xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center mb-8">
