@@ -8,22 +8,22 @@ const resources = [
   {
     title: "Manajemen Keuangan",
     subtitle:
-      "Applikasi perencanaan keuangan jangka pendek dan jangka panjang, termasuk pembuatan anggaran, proyeksi pendapatan, dan pengeluaran.",
-    url: "https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF",
+      "Aplikasi perencanaan keuangan jangka pendek dan jangka panjang, termasuk pembuatan anggaran, proyeksi pendapatan, dan pengeluaran.",
+    url: "/",
     icon: "M7 4V20M17 4V20M3 8H7M17 8H21M3 12H21M3 16H7M17 16H21M4 20H20C20.5523 20 21 19.5523 21 19V5C21 4.44772 20.5523 4 20 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20Z",
   },
   {
     title: "Manajemen Pelanggan",
     subtitle:
-      "Applikasi untuk mengelola interaksi dan hubungan dengan pelanggan Anda. Ini melibatkan segala hal, mulai dari memahami kebutuhan dan harapan pelanggan hingga memberikan layanan pelanggan yang superior dan mempertahankan kepuasan pelanggan.",
-    url: "https://github.com/supabase/supabase/tree/master/examples/auth/nextjs",
+      "Aplikasi untuk mengelola interaksi dan hubungan dengan pelanggan Anda. Ini melibatkan segala hal, mulai dari memahami kebutuhan dan harapan pelanggan hingga memberikan layanan pelanggan yang superior dan mempertahankan kepuasan pelanggan.",
+    url: "/",
     icon: "M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8",
   },
   {
     title: "Manajemen Konten",
     subtitle:
-      "Applikasi untuk pengelolaan, pengorganisasian, dan distribusi konten secara efektif. Konten dalam konteks ini dapat berupa teks, gambar, video, atau jenis media lainnya yang digunakan untuk menyampaikan informasi kepada audiens.",
-    url: "https://supabase.com/docs/guides/auth/auth-helpers/nextjs",
+      "Aplikasi untuk pengelolaan, pengorganisasian, dan distribusi konten secara efektif. Konten dalam konteks ini dapat berupa teks, gambar, video, atau jenis media lainnya yang digunakan untuk menyampaikan informasi kepada audiens.",
+    url: "/",
     icon: "M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528",
   },
 ];
@@ -34,10 +34,10 @@ export default function Home() {
       <div className="animate-in flex flex-col gap-8  max-w-4xl px-3 py-16 lg:py-24 text-foreground">
         <div className="flex flex-col items-center mb-4 lg:mb-12">
           <h1 className=" text-9xl font-bold tracking-tighter text-slate-200">
-            iKuantum.
+            Kuantum Karsa Karya.
           </h1>
           <p className="text-2xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center mb-8">
-            iDevice Store & Care Management.
+           Bakul Pasar Manajemen.
           </p>
           <Button href="/login" as={NextLink} color="default" variant="ghost" className="group">
             Akses Login
