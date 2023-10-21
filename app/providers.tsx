@@ -1,12 +1,12 @@
 // app/providers.tsx
-'use client'
+"use client";
+import { Provider } from "react-wrap-balancer";
+import { NextUIProvider } from "@nextui-org/react";
 
-import {NextUIProvider} from '@nextui-org/react'
-
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <NextUIProvider>
-      {children}
+      <Provider>{children}</Provider>
     </NextUIProvider>
-  )
+  );
 }

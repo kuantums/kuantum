@@ -1,30 +1,15 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import DashboardNavbar from "@/components/navbar/Navbar";
-
-export const dynamic = 'force-dynamic'
+import Nav from "@/app/navbar/nav";
 
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createServerComponentClient({
-    cookies,
-  });
+  // Call the function with a cookie value
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
-  if (!session) {
-    // this is a protected route - only users who are signed in can view this route
-    redirect("/");
-  }
   return (
     <>
-      <DashboardNavbar />
+      <Nav />
       <main className="min-h-screen">{children}</main>
     </>
   );
