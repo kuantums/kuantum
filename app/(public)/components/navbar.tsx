@@ -1,6 +1,15 @@
 "use client";
 import React from "react";
-import { Navbar, NavbarBrand, Link, NavbarItem } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  Link,
+  NavbarItem,
+  NavbarContent,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+} from "@nextui-org/react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +24,16 @@ import { LoginDashBoardForm } from "../loginform";
 import { cn } from "@/lib/utils";
 
 export default function PublicNavbar() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    "Layanan",
+    "Aplikasi",
+    "Portfolio",
+    "Dashboard",
+    "Help & Feedback",
+  ];
+
   return (
     <>
       <Navbar
@@ -23,15 +42,42 @@ export default function PublicNavbar() {
         isBordered
         maxWidth="full"
       >
-        <NavbarBrand className="max-w-sm">
+        <NavbarContent className="lg:hidden" justify="start">
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          />
+        </NavbarContent>
+
+        <NavbarBrand>
           <Ktypo
             className="fill-slate-300 
         "
           />
         </NavbarBrand>
 
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                className="w-full"
+                color={
+                  index === 2
+                    ? "warning"
+                    : index === menuItems.length - 1
+                    ? "success"
+                    : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+
         <NavigationMenu
-          className="hidden lg:block mx-auto"
+          className="hidden max-w-2xl lg:block mx-auto"
           suppressHydrationWarning
         >
           <NavigationMenuList suppressHydrationWarning>

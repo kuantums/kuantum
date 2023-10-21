@@ -49,6 +49,10 @@ export const LoginForm = () => {
         });
         setIsLoading(false);
       } else {
+        toast.success(" Hello! 👋 Selamat Datang", {
+          duration: 5000,
+          position: "top-right",
+        });
         router.push("/dashboard");
       }
     } catch (error) {
