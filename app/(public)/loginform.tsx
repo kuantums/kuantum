@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Modal,
@@ -11,23 +11,23 @@ import {
   Input,
   Link,
   CircularProgress,
-} from '@nextui-org/react';
+} from "@nextui-org/react";
 
-import * as React from 'react';
+import * as React from "react";
 import {
   BadgeAlert,
   ChevronRight,
   LockIcon,
   MailIcon,
   UserIcon,
-} from 'lucide-react';
-import { redirect, useRouter } from 'next/navigation';
-import { toast } from 'sonner';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+} from "lucide-react";
+import { redirect, useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export const LoginForm = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
   const supabase = createClientComponentClient<Database>();
@@ -43,17 +43,17 @@ export const LoginForm = () => {
 
       if (error) {
         toast.error(error.message, {
-          style: { background: '#ff571a', color: 'white', border: 'none' },
+          style: { background: "#ff571a", color: "white", border: "none" },
           duration: 5000,
           icon: <BadgeAlert />,
         });
         setIsLoading(false);
       } else {
-        router.push('/dashboard');
+        router.push("/dashboard");
       }
     } catch (error) {
       // Handle any other errors that may occur
-      toast.error('server error');
+      toast.error("server error");
       // You can display an error message to the user or take some other action
     } finally {
       setTimeout(() => {
@@ -80,7 +80,7 @@ export const LoginForm = () => {
         backdrop="opaque"
         classNames={{
           backdrop:
-            'bg-gradient-to-t from-black to-stone-900/10 backdrop-opacity-20',
+            "bg-gradient-to-t from-black to-stone-900/10 backdrop-opacity-20",
         }}
         motionProps={{
           variants: {
@@ -89,7 +89,7 @@ export const LoginForm = () => {
               opacity: 1,
               transition: {
                 duration: 0.3,
-                ease: 'easeOut',
+                ease: "easeOut",
               },
             },
             exit: {
@@ -97,7 +97,7 @@ export const LoginForm = () => {
               opacity: 0,
               transition: {
                 duration: 0.2,
-                ease: 'easeIn',
+                ease: "easeIn",
               },
             },
           },
@@ -139,7 +139,7 @@ export const LoginForm = () => {
               {isLoading ? (
                 <CircularProgress color="success" aria-label="Loading..." />
               ) : (
-                'Login'
+                "Login"
               )}
             </Button>
           </ModalFooter>
@@ -150,8 +150,8 @@ export const LoginForm = () => {
 };
 
 export const LoginDashBoardForm = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
   const supabase = createClientComponentClient<Database>();
@@ -167,17 +167,17 @@ export const LoginDashBoardForm = () => {
 
       if (error) {
         toast.error(error.message, {
-          style: { background: '#ff571a', color: 'white', border: 'none' },
+          style: { background: "#ff571a", color: "white", border: "none" },
           duration: 5000,
           icon: <BadgeAlert />,
         });
         setIsLoading(false);
       } else {
-        router.push('/dashboard');
+        router.push("/dashboard");
       }
     } catch (error) {
       // Handle any other errors that may occur
-      toast.error('server error');
+      toast.error("server error");
       // You can display an error message to the user or take some other action
     } finally {
       setTimeout(() => {
@@ -205,7 +205,7 @@ export const LoginDashBoardForm = () => {
         backdrop="opaque"
         classNames={{
           backdrop:
-            'bg-gradient-to-t from-black to-stone-900/10 backdrop-opacity-20',
+            "bg-gradient-to-t from-black to-stone-900/10 backdrop-opacity-20",
         }}
         motionProps={{
           variants: {
@@ -214,7 +214,7 @@ export const LoginDashBoardForm = () => {
               opacity: 1,
               transition: {
                 duration: 0.3,
-                ease: 'easeOut',
+                ease: "easeOut",
               },
             },
             exit: {
@@ -222,7 +222,7 @@ export const LoginDashBoardForm = () => {
               opacity: 0,
               transition: {
                 duration: 0.2,
-                ease: 'easeIn',
+                ease: "easeIn",
               },
             },
           },
@@ -264,7 +264,7 @@ export const LoginDashBoardForm = () => {
               {isLoading ? (
                 <CircularProgress color="success" aria-label="Loading..." />
               ) : (
-                'Login'
+                "Login"
               )}
             </Button>
           </ModalFooter>
