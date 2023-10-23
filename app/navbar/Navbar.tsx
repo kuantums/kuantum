@@ -1,56 +1,63 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
+import NextLink from "next/link";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   DropdownItem,
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
   Avatar,
   Button,
-} from '@nextui-org/react';
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+} from "@nextui-org/react";
 
-import { FC } from 'react';
-import { Klogo, Ktypo } from '@/components/icon/klogo';
-import LogoutButton from './logout';
+import { Ktypo } from "@/components/icon/klogo";
+import LogoutButton from "./logout";
 
-interface Props {
-  email?: string | null;
-  foto_profil?: string | null;
-  roles?: string | null;
-  nama?: string | null;
+interface signout {
+  signout?: any;
+  userdata?: any;
 }
 
-const DashboardNavbar: FC<Props> = ({ nama, email, foto_profil, roles }) => {
+const DashboardNavbar = ({ userdata, signout }: signout) => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <Navbar>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      maxWidth="2xl"
+      isBlurred
+      isBordered
+      classNames={{
+        base: "bg-transparent ",
+      }}
+    >
+      {" "}
+      <NavbarMenuToggle
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        className="sm:hidden"
+      />
       <NavbarBrand>
         <Ktypo className="w-20 h-auto fill-white" />
       </NavbarBrand>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page" color="secondary">
-            {email}
-          </Link>
+          <NextLink color="foreground" href="/dashboard/ceo">
+            dashboard
+          </NextLink>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <NextLink color="foreground" href="#">
             Integrations
-          </Link>
+          </NextLink>
         </NavbarItem>
       </NavbarContent>
-
-      <NavbarContent as="div" justify="end">
+      <NavbarContent as="div" justify="end" itemType="center" is="hidden">
         <Dropdown placement="bottom-end">
           <DropdownTrigger>
             <Avatar
@@ -60,13 +67,16 @@ const DashboardNavbar: FC<Props> = ({ nama, email, foto_profil, roles }) => {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src={userdata.avatar_url}
+              fallback="c"
+              alt={userdata.full_name}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2">
               <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
+              <p className="font-light">{userdata.name}</p>
+              <p className="font-semibold">{userdata.email}</p>
             </DropdownItem>
             <DropdownItem key="settings">My Settings</DropdownItem>
             <DropdownItem key="team_settings">Team Settings</DropdownItem>
@@ -78,17 +88,40 @@ const DashboardNavbar: FC<Props> = ({ nama, email, foto_profil, roles }) => {
         </Dropdown>
         <LogoutButton />
       </NavbarContent>
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <NextLink
+              color={
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
+              }
+              className="w-full"
+              href="#"
+            >
+              {item}
+            </NextLink>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 };
 
 export default DashboardNavbar;
 
-// import React from "react";
-// import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
-// import {AcmeLogo} from "./AcmeLogo.jsx";
-
-// export default function App() {
-//   return (
-//   );
-// }
+const menuItems = [
+  "Profile",
+  "Dashboard",
+  "Activity",
+  "Analytics",
+  "System",
+  "Deployments",
+  "My Settings",
+  "Team Settings",
+  "Help & Feedback",
+  "Log Out",
+];

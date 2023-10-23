@@ -22,7 +22,7 @@ export default function Home() {
             </Balancer>
           </h1>
           <p className="text-2xl text-left lg:text-3xl !leading-tight tracking-tighter my-4">
-            Dengan Platform Berbasis Web Aplikasi.
+            Dengan Platform Berbasis Web Aplikasi Kami.
           </p>
           <LoginForm />
         </div>

@@ -153,17 +153,28 @@ export const LoginForm = () => {
   );
 };
 
+//
+
 export const LoginDashBoardForm = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoadings, setIsLoadings] = React.useState(false);
   const router = useRouter();
   const supabase = createClientComponentClient<Database>();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const SignInWithOauth = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `http://localhost:3000/auth/callback`,
+      },
+    });
+  };
+
   const handleSignIn = async () => {
     try {
-      setIsLoading(true);
+      setIsLoadings(true);
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -175,7 +186,7 @@ export const LoginDashBoardForm = () => {
           duration: 5000,
           icon: <BadgeAlert />,
         });
-        setIsLoading(false);
+        setIsLoadings(false);
       } else {
         router.push("/dashboard");
       }
@@ -185,7 +196,7 @@ export const LoginDashBoardForm = () => {
       // You can display an error message to the user or take some other action
     } finally {
       setTimeout(() => {
-        setIsLoading(false);
+        setIsLoadings(false);
       }, 8000);
     }
   };
@@ -257,19 +268,23 @@ export const LoginDashBoardForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <div className="flex py-2 px-1 justify-between">
+            <div className="flex  px-1 justify-between">
               <Link color="primary" href="#" size="sm">
                 Forgot password?
               </Link>
             </div>
           </ModalBody>
-          <ModalFooter>
-            <Button type="submit" onPress={handleSignIn} disabled={isLoading}>
-              {isLoading ? (
+          <ModalFooter className="flex flex-col">
+            <Button type="submit" onPress={handleSignIn} disabled={isLoadings}>
+              {isLoadings ? (
                 <CircularProgress color="success" aria-label="Loading..." />
               ) : (
                 "Login"
               )}
+            </Button>
+            <p>Atau Masuk Dengan</p>
+            <Button type="submit" onPress={SignInWithOauth}>
+              Google
             </Button>
           </ModalFooter>
         </ModalContent>

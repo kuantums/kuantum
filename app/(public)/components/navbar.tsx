@@ -4,7 +4,6 @@ import {
   Navbar,
   NavbarBrand,
   Link,
-  NavbarItem,
   NavbarContent,
   NavbarMenuToggle,
   NavbarMenuItem,
