@@ -6,8 +6,9 @@ import Menu from "./menu";
 
 export default async function ceopage() {
   const getakun = useSupaRoot;
+  const cookieStore = cookies();
 
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient<Database>({ cookies: () => cookieStore  });
   // get all user / service role must be in server client
   const { data: akundata } = await getakun.from("akun").select("*");
   //get single

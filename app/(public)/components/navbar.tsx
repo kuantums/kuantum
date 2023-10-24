@@ -40,6 +40,7 @@ export default function PublicNavbar() {
         suppressHydrationWarning
         isBordered
         maxWidth="full"
+        onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="lg:hidden" justify="start">
           <NavbarMenuToggle

@@ -1,10 +1,12 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-export const dynamic = "force-dynamic";
+import UserMenu from "./user/menu";
+
 
 export default async function dashboard() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient<Database>({  cookies: () => cookieStore, });
   const { data: akun } = await supabase.from("akun").select("*").single();
   if (akun?.roles == "ceo") {
     redirect(`/dashboard/${akun.roles}`);
@@ -16,9 +18,10 @@ export default async function dashboard() {
     redirect(`/dashboard/${akun.roles}`);
   } else {
     return (
-      <div>
-        <p className="text-2xl tracking-tighter">Non Employee</p>
-      </div>
+    <section className="p-4 w-full h-full">
+    <UserMenu />
+    </section>
     );
+    
   }
 }

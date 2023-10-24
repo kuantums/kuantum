@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 import { CheckIcon, PaperPlaneIcon, PlusIcon } from "@radix-ui/react-icons";
 
@@ -91,7 +93,7 @@ export function CardsChat() {
 
   return (
     <>
-      <Card className="mt-4">
+      <Card className="mb-4 mt-3 overflow-y-auto h-[500px]">
         <CardHeader className="flex flex-row items-center">
           <div className="flex items-center space-x-4">
             <Avatar>
@@ -121,7 +123,7 @@ export function CardsChat() {
           </TooltipProvider>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="space-y-4 overflow-auto">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -133,12 +135,14 @@ export function CardsChat() {
                 )}
               >
                 {message.content}
+               
               </div>
             ))}
           </div>
         </CardContent>
-        <CardFooter>
-          <form
+        
+      </Card>
+      <form
             onSubmit={(event) => {
               event.preventDefault();
               if (inputLength === 0) return;
@@ -166,9 +170,9 @@ export function CardsChat() {
               <span className="sr-only">Send</span>
             </Button>
           </form>
-        </CardFooter>
-      </Card>
-      <Dialog open={open} onOpenChange={setOpen}>
+
+
+      <Dialog open={open} onOpenChange={setOpen} >
         <DialogContent className="gap-0 p-0 outline-none">
           <DialogHeader className="px-4 pb-4 pt-5">
             <DialogTitle>New message</DialogTitle>

@@ -3,12 +3,12 @@ import { cookies } from "next/headers";
 import DashboardNavbar from "./Navbar";
 import { redirect } from "next/navigation";
 
-const cookieStore = cookies();
+
+export default async function Nav() {
+  const cookieStore = cookies();
 const supabase = createServerComponentClient<Database>({
   cookies: () => cookieStore,
 });
-
-export default async function Nav() {
   const {
     data: { session },
   } = await supabase.auth.getSession();

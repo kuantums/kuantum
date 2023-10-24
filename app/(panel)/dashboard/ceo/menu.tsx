@@ -1,8 +1,7 @@
 "use client";
-import { CeoCard } from "./_ceo_components/card";
-import { OmsetChart } from "./_ceo_components/chart";
-import { CardsChat } from "./_ceo_components/chat";
-import { CardsTeamMembers } from "./_ceo_components/team-member";
+import { CeoCard } from "./ceo_components/card";
+import { OmsetChart } from "./ceo_components/chart";
+import { CardsTeamMembers } from "./ceo_components/team-member";
 
 interface userProps {
   userdata?: any;

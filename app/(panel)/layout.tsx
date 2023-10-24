@@ -1,4 +1,4 @@
-import Nav from "@/app/navbar/nav";
+import Nav from "@/app/(panel)/dashboard/components/navbar/nav";
 
 export default async function DashboardLayout({
   children,

@@ -41,10 +41,12 @@ const data = [
 
 const chartmenu = [
   {
+    id:"1",
     title: "Omset Perusahaan",
     desc: "Nilai Rata Rata perhari",
   },
   {
+    id:"2",
     title: "Performa karyawan",
     desc: "Aktivitas",
   },
@@ -54,7 +56,7 @@ export function OmsetChart() {
   return (
     <div className="gap-5 h-full w-full grid">
       {chartmenu.map((menu) => (
-        <Card className="w-full h-full">
+        <Card className="w-full h-full" key={menu.id}>
           <CardHeader>
             <CardTitle>{menu.title}</CardTitle>
             <CardDescription>{menu.desc}</CardDescription>
